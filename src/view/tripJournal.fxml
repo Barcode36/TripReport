@@ -10,7 +10,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
       prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controler.TripJournalController">
+      fx:controller="controller.TripJournalController">
 
     <children>
         <VBox id="navBar" alignment="TOP_CENTER" prefHeight="702.0" prefWidth="155.0"

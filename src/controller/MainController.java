@@ -1,7 +1,6 @@
-package controler;
+package controller;
 
 import javafx.event.ActionEvent;
-import model.Driver;
 import util.SceneController;
 
 public class MainController {

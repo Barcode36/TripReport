@@ -1,6 +1,4 @@
-package controler;
-
-import javafx.event.ActionEvent;
+package controller;
 
 public class TripJournalController extends MainController {
 

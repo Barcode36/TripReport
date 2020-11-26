@@ -2,61 +2,165 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
-      prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controller.TripJournalController">
-
-    <children>
-        <VBox id="navBar" alignment="TOP_CENTER" prefHeight="702.0" prefWidth="155.0"
-              style="-fx-background-color: #fd403e;">
-            <children>
-                <Label prefHeight="111.0" prefWidth="159.0" text="Clan Panneton" textAlignment="CENTER">
-                    <font>
-                        <Font size="24.0"/>
-                    </font>
-                </Label>
-                <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" prefHeight="53.0"
-                        prefWidth="121.0" text="TRIP JOURNAL" onAction="#tripReportButton">
-                    <font>
-                        <Font size="15.0"/>
-                    </font>
-                    <VBox.margin>
-                        <Insets bottom="10.0"/>
-                    </VBox.margin>
-                </Button>
-                <Button id="reportButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0"
-                        text="TRIP REPORT" onAction="#reportButton">
-                    <font>
-                        <Font size="15.0"/>
-                    </font>
-                    <VBox.margin>
-                        <Insets bottom="10.0"/>
-                    </VBox.margin>
-                </Button>
-                <Button id="summaryButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="SUMMARY" onAction="#summaryButton">
-                    <font>
-                        <Font size="15.0"/>
-                    </font>
-                    <VBox.margin>
-                        <Insets bottom="10.0"/>
-                    </VBox.margin>
-                </Button>
-            </children>
-        </VBox>
-        <Pane layoutX="155.0" prefHeight="700.0" prefWidth="844.0" style="-fx-background-color: #888b8a;">
-            <children>
-                <Label layoutX="38.0" layoutY="34.0" text="Trip Journal">
-                    <font>
-                        <Font size="32.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-    </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox id="navBar" alignment="TOP_CENTER" prefHeight="800.0" prefWidth="165.0" style="-fx-background-color: #fd403e;">
+         <children>
+            <Label prefHeight="111.0" prefWidth="159.0" text="Clan Panneton" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="TRIP JOURNAL">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="reportButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="TRIP REPORT">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="summaryButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="SUMMARY">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="162.0" prefHeight="800.0" prefWidth="840.0" style="-fx-background-color: #888b8a;">
+         <children>
+            <Label layoutX="21.0" text="Trip Journal">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Pane id="TripPanel" layoutX="21.0" layoutY="51.0" prefHeight="264.0" prefWidth="776.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="1.0" text="Trip Details">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="54.0" text="Trip Number">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="121.0" text="Driver Number">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="185.0" text="Date Departed">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dateDepartedInput" id="dateDepartedInput" layoutX="10.0" layoutY="225.0" />
+                  <TextField fx:id="tripNumberInput" id="tripNumberInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="761.0" />
+                  <TextField fx:id="driverNumberInput" id="driverNumberInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <Label layoutX="409.0" layoutY="121.0" text="Co-Driver Number">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="coDriverNumberInput" id="coDriverNumberInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <Label layoutX="409.0" layoutY="185.0" text="Date Returned">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dateReturnedInput" id="dateReturnedInput" layoutX="409.0" layoutY="225.0" />
+               </children>
+            </Pane>
+            <Pane id="TruckPanel" layoutX="21.0" layoutY="325.0" prefHeight="188.0" prefWidth="776.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="1.0" text="Truck">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="54.0" text="Truck Number">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="121.0" text="Start Mileage">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="truckNumberInput" id="truckNumberInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField fx:id="startMileageInput" id="startMileageInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <Label layoutX="409.0" layoutY="121.0" text="End Mileage">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="endMileageInput" id="endMileageInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <Label layoutX="410.0" layoutY="54.0" text="State Code">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="stateCodeInput" id="stateCodeInput" layoutX="411.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+               </children>
+            </Pane>
+            <Pane id="FuelPanel" layoutX="21.0" layoutY="507.0" prefHeight="188.0" prefWidth="776.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="1.0" text="Fuel Details">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="54.0" text="Station Name">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="121.0" text="Price (￠/L)">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="stationNameInput" id="stationNameInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField fx:id="priceInput" id="priceInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <Label layoutX="410.0" layoutY="121.0" text="Litres (L)">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="litresInput" id="litresInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <Label layoutX="410.0" layoutY="54.0" text="Station Location">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="stationLocationInput" id="stationLocationInput" layoutX="410.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+               </children>
+            </Pane>
+            <Button id="SubmitButton" layoutX="31.0" layoutY="722.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="761.0" text="SUBMIT">
+               <font>
+                  <Font size="19.0" />
+               </font></Button>
+         </children>
+      </Pane>
+   </children>
 </Pane>

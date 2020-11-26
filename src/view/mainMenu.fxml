@@ -3,48 +3,44 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
-      prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controller.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
 
     <children>
-        <VBox id="navBar" alignment="TOP_CENTER" prefHeight="702.0" prefWidth="155.0"
-              style="-fx-background-color: #fd403e;">
+        <VBox id="navBar" alignment="TOP_CENTER" prefHeight="702.0" prefWidth="155.0" style="-fx-background-color: #fd403e;">
             <children>
                 <Label prefHeight="111.0" prefWidth="159.0" text="Clan Panneton" textAlignment="CENTER">
                     <font>
-                        <Font size="24.0"/>
+                        <Font size="24.0" />
                     </font>
                 </Label>
-                <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" prefHeight="53.0"
-                        prefWidth="121.0" text="TRIP JOURNAL" onAction="#tripReportButton">
+                <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" onAction="#tripReportButton" prefHeight="53.0" prefWidth="121.0" text="TRIP JOURNAL">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                     <VBox.margin>
-                        <Insets bottom="10.0"/>
+                        <Insets bottom="10.0" />
                     </VBox.margin>
                 </Button>
-                <Button id="reportButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0"
-                        text="TRIP REPORT" onAction="#reportButton">
+                <Button id="reportButton" mnemonicParsing="false" onAction="#reportButton" prefHeight="53.0" prefWidth="121.0" text="TRIP REPORT">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                     <VBox.margin>
-                        <Insets bottom="10.0"/>
+                        <Insets bottom="10.0" />
                     </VBox.margin>
                 </Button>
-                <Button id="summaryButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="SUMMARY"  onAction="#summaryButton">
+                <Button id="summaryButton" mnemonicParsing="false" onAction="#summaryButton" prefHeight="53.0" prefWidth="121.0" text="SUMMARY">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                     <VBox.margin>
-                        <Insets bottom="10.0"/>
+                        <Insets bottom="10.0" />
                     </VBox.margin>
                 </Button>
             </children>
@@ -53,14 +49,14 @@
             <children>
                 <Label layoutX="220.0" layoutY="58.0" text="Welcome to Clan Panneton!!">
                     <font>
-                        <Font size="32.0"/>
+                        <Font size="32.0" />
                     </font>
                 </Label>
-                <!--            <ImageView fitHeight="591.0" fitWidth="690.0" layoutX="85.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">-->
-                <!--               <image>-->
-                <!--                  <Image url="@images/clanPanneton.png" />-->
-                <!--               </image>-->
-                <!--            </ImageView>-->
+            <ImageView fitHeight="402.0" fitWidth="732.0" layoutX="56.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../src/res/clanPanneton.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
     </children>

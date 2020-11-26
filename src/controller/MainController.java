@@ -7,7 +7,7 @@ public class MainController {
 
      public void tripReportButton(ActionEvent actionEvent) {
          System.out.println("button pressed --> " +actionEvent.getSource().toString());
-        new SceneController().setScene("../view/tripJournal.fxml", "Trip Report", 1000, 700);
+         new SceneController().setScene("../view/tripJournal.fxml", "Trip Report", 1000, 800);
     }
 
     public void reportButton(ActionEvent actionEvent) {
@@ -19,4 +19,5 @@ public class MainController {
         System.out.println("button pressed --> " +actionEvent.getSource().toString());
 //        new SceneController().setScene("", "", 1000, 700);
     }
+
 }

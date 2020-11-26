@@ -73,21 +73,21 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dateDepartedInput" id="dateDepartedInput" layoutX="10.0" layoutY="225.0" />
-                  <TextField fx:id="tripNumberInput" id="tripNumberInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="761.0" />
-                  <TextField fx:id="driverNumberInput" id="driverNumberInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <DatePicker id="dateDepartedInput" fx:id="dateDepartedInput" layoutX="10.0" layoutY="225.0" />
+                  <TextField id="tripNumberInput" fx:id="tripNumberInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="761.0" />
+                  <TextField id="driverNumberInput" fx:id="driverNumberInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
                   <Label layoutX="409.0" layoutY="121.0" text="Co-Driver Number">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="coDriverNumberInput" id="coDriverNumberInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="coDriverNumberInput" fx:id="coDriverNumberInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
                   <Label layoutX="409.0" layoutY="185.0" text="Date Returned">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dateReturnedInput" id="dateReturnedInput" layoutX="409.0" layoutY="225.0" />
+                  <DatePicker id="dateReturnedInput" fx:id="dateReturnedInput" layoutX="409.0" layoutY="225.0" />
                </children>
             </Pane>
             <Pane id="TruckPanel" layoutX="21.0" layoutY="325.0" prefHeight="188.0" prefWidth="776.0">
@@ -102,25 +102,25 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="8.0" layoutY="121.0" text="Start Mileage">
+                  <Label layoutX="8.0" layoutY="121.0" text="Mileage">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="truckNumberInput" id="truckNumberInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
-                  <TextField fx:id="startMileageInput" id="startMileageInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
-                  <Label layoutX="409.0" layoutY="121.0" text="End Mileage">
+                  <TextField id="truckNumberInput" fx:id="truckNumberInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="mileageInput" fx:id="mileageInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <Label layoutX="409.0" layoutY="121.0" text="Comments">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="endMileageInput" id="endMileageInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="mileageOutput" fx:id="commentInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
                   <Label layoutX="410.0" layoutY="54.0" text="State Code">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="stateCodeInput" id="stateCodeInput" layoutX="411.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="stateCodeInput" fx:id="stateCodeInput" layoutX="411.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
                </children>
             </Pane>
             <Pane id="FuelPanel" layoutX="21.0" layoutY="507.0" prefHeight="188.0" prefWidth="776.0">
@@ -140,20 +140,20 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="stationNameInput" id="stationNameInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
-                  <TextField fx:id="priceInput" id="priceInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="stationNameInput" fx:id="stationNameInput" layoutX="8.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="priceInput" fx:id="priceInput" layoutX="8.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
                   <Label layoutX="410.0" layoutY="121.0" text="Litres (L)">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="litresInput" id="litresInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="litresInput" fx:id="litresInput" layoutX="410.0" layoutY="148.0" prefHeight="25.0" prefWidth="333.0" />
                   <Label layoutX="410.0" layoutY="54.0" text="Station Location">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="stationLocationInput" id="stationLocationInput" layoutX="410.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
+                  <TextField id="stationLocationInput" fx:id="stationLocationInput" layoutX="410.0" layoutY="81.0" prefHeight="25.0" prefWidth="333.0" />
                </children>
             </Pane>
             <Button id="SubmitButton" layoutX="31.0" layoutY="722.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="761.0" text="SUBMIT">

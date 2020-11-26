@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Trip {
+    public static final int ALL_TRIPS = 1;
+    public static final int DAYS_30 = 2;
+    public static final int DAYS_180 = 3;
+    public static final int YEAR = 4;
+
     private int id;
     private String tripNo;
     private String driverNo;
@@ -65,13 +70,27 @@ public class Trip {
         }
     }
 
-    public static List<Trip> getAllTrip() {
+    public static List<Trip> getAllTrip(int type) {
         try {
             // Create list
             List<Trip> trips = new ArrayList<Trip>();
 
+            // Create sql
+            String sql = "SELECT * FROM Trip ";
+            switch (type) {
+                case DAYS_30:
+                    sql += "WHERE departDate BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW();";
+                    break;
+                case  DAYS_180:
+                    sql += "WHERE departDate BETWEEN DATE_SUB(NOW(), INTERVAL 180 DAY) AND NOW();";
+                    break;
+                case  YEAR:
+                    sql += "WHERE departDate BETWEEN DATE_SUB(NOW(), INTERVAL 365 DAY) AND NOW();";
+                    break;
+            }
+
             // Execute sql
-            ResultSet rs = DbConn.getConn().prepareStatement("select * from Trip").executeQuery();
+            ResultSet rs = DbConn.getConn().prepareStatement(sql).executeQuery();
 
             // Fill out list
             while (rs.next()) {

@@ -15,8 +15,8 @@ public class Main_Old {
         DbConn.connect();
 
 
-//        for(Trip trip : Trip.getAllTrip())
-//            System.out.println(trip.toString());
+        for(Trip trip : Trip.getAllTrip(Trip.DAYS_30))
+            System.out.println(trip.toString());
 
 //        System.out.println(Trip.getTrip(4));
 
@@ -32,8 +32,8 @@ public class Main_Old {
 //
 //        System.out.println("\n" + Truck.getTruck("JLU0"));
 
-        for (State state : State.getAllState())
-            System.out.println(state.toString());
+//        for (State state : State.getAllState())
+//            System.out.println(state.toString());
 
         System.out.println("\n" + State.getState("AK"));
     }

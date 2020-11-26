@@ -2,10 +2,11 @@ package model;
 
 import util.DbConn;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Trip {
@@ -23,6 +24,8 @@ public class Trip {
     private double taxesPaid;
     private String stationName;
     private String stationLocation;
+    private double gallonPurchased;
+    private double fuelConsumption;
     private String comment;
 
     public Trip() {
@@ -55,7 +58,7 @@ public class Trip {
             ResultSet rs = DbConn.getConn().prepareStatement("select * from Trip").executeQuery();
 
             // Fill out list
-            while(rs.next()){
+            while (rs.next()) {
                 trips.add(rsToTrip(rs));
             }
 
@@ -63,6 +66,39 @@ public class Trip {
         } catch (SQLException e) {
             return null;
         }
+    }
+
+    public static int saveTrip(Trip trip) {
+        try {
+
+            PreparedStatement statement = DbConn.getConn().prepareStatement("" +
+                    "insert into Trip " +
+                    "(tripNo, driverNo, coDriverNo, truckNo, stateCode, departDate, returnDate, milesDriven, fuelReceiptNumber, fuelPaid, taxesPaid, stationName, stationLocation, gallonPurchased, fuelConsumption, comment)" +
+                    "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+            statement.setString(1, trip.tripNo == null ? "" : trip.tripNo);
+            statement.setString(2, trip.driverNo == null ? "" : trip.driverNo);
+            statement.setString(3, trip.coDriverNo == null ? "" : trip.coDriverNo);
+            statement.setString(4, trip.truckNo == null ? "" : trip.truckNo);
+            statement.setString(5, trip.stateCode == null ? "" : trip.stateCode);
+            statement.setDate(6, trip.departDate);
+            statement.setDate(7, trip.returnDate);
+            statement.setInt(8, trip.milesDriven);
+            statement.setString(9, trip.fuelReceiptNumber == null ? "" : trip.fuelReceiptNumber);
+            statement.setDouble(10, trip.fuelPaid);
+            statement.setDouble(11, trip.taxesPaid);
+            statement.setString(12, trip.stationLocation == null ? "" : trip.stationLocation);
+            statement.setString(13, trip.stationLocation == null ? "" : trip.stationLocation);
+            statement.setDouble(14, trip.gallonPurchased);
+            statement.setDouble(15, trip.fuelConsumption);
+            statement.setString(16, trip.comment == null ? "" : trip.comment);
+
+            return statement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
     }
 
     private static Trip rsToTrip(ResultSet rs) throws SQLException {
@@ -82,6 +118,8 @@ public class Trip {
         trip.taxesPaid = rs.getDouble("taxesPaid");
         trip.stationName = rs.getString("stationName");
         trip.stationLocation = rs.getString("stationLocation");
+        trip.gallonPurchased = rs.getDouble("gallonPurchased");
+        trip.fuelConsumption = rs.getDouble("fuelConsumption");
         trip.comment = rs.getString("comment");
 
         return trip;
@@ -95,7 +133,7 @@ public class Trip {
                 ", driverNo='" + driverNo + '\'' +
                 ", coDriverNo='" + coDriverNo + '\'' +
                 ", truckNo='" + truckNo + '\'' +
-                ", stateCode=" + stateCode +
+                ", stateCode='" + stateCode + '\'' +
                 ", departDate=" + departDate +
                 ", returnDate=" + returnDate +
                 ", milesDriven=" + milesDriven +
@@ -104,6 +142,8 @@ public class Trip {
                 ", taxesPaid=" + taxesPaid +
                 ", stationName='" + stationName + '\'' +
                 ", stationLocation='" + stationLocation + '\'' +
+                ", gallonPurchased='" + gallonPurchased + '\'' +
+                ", fuelConsumption='" + fuelConsumption + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';
     }
@@ -164,12 +204,16 @@ public class Trip {
         return stationLocation;
     }
 
-    public String getComment() {
-        return comment;
+    public Double getGallonPurchased() {
+        return gallonPurchased;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Double getFuelConsumption() {
+        return fuelConsumption;
+    }
+
+    public String getComment() {
+        return comment;
     }
 
     public void setTripNo(String tripNo) {
@@ -222,6 +266,14 @@ public class Trip {
 
     public void setStationLocation(String stationLocation) {
         this.stationLocation = stationLocation;
+    }
+
+    public void setGallonPurchased(Double gallonPurchased) {
+        this.gallonPurchased = gallonPurchased;
+    }
+
+    public void setFuelConsumption(Double fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
     }
 
     public void setComment(String comment) {

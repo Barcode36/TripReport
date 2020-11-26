@@ -54,7 +54,7 @@
                 </Label>
             <ImageView fitHeight="402.0" fitWidth="732.0" layoutX="56.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../src/res/clanPanneton.png" />
+                  <Image url="@../res/clanPanneton.png" />
                </image>
             </ImageView>
             </children>

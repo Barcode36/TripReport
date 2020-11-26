@@ -13,17 +13,16 @@ public class Main_Old {
         DbConn.connect();
 
 
-        for(Trip trip : Trip.getAllTrip())
-            System.out.println(trip.toString());
+//        for(Trip trip : Trip.getAllTrip())
+//            System.out.println(trip.toString());
 
-        System.out.println(Trip.getTrip(4));
+//        System.out.println(Trip.getTrip(4));
 
-        for (Driver driver : Driver.getAllDriver())
-            System.out.println(driver.toString());
+//        for (Driver driver : Driver.getAllDriver())
+//            System.out.println(driver.toString());
 
-        System.out.println(Driver.getDriver("GO7013553"));
+//        System.out.println(Driver.getDriver("GO7013553"));
 
-
-
+        Trip.saveTrip(Trip.getTrip(3));
     }
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,9 +12,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:controller="controller.TripReportController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<Pane fx:controller="controller.ExceptionsReportController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox id="navBar" alignment="TOP_CENTER" prefHeight="800.0" prefWidth="165.0" style="-fx-background-color: #fd403e;">
+      <VBox id="navBar" alignment="TOP_CENTER" layoutX="-2.0" prefHeight="800.0" prefWidth="165.0" style="-fx-background-color: #fd403e;">
          <children>
             <Label prefHeight="111.0" prefWidth="159.0" text="Clan Panneton" textAlignment="CENTER">
                <font>
@@ -46,32 +48,32 @@
             </Button>
          </children>
       </VBox>
-      <Pane layoutX="165.0" prefHeight="800.0" prefWidth="840.0" style="-fx-background-color: #888b8a;">
+      <Pane layoutX="163.0" prefHeight="800.0" prefWidth="840.0" style="-fx-background-color: #888b8a;">
          <children>
-            <Label layoutX="13.0" text="Trip Report">
+            <Label layoutX="13.0" text="Trip Report - Exceptions Report">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <Label layoutX="13.0" layoutY="47.0" text="Trip Details">
+            <Label layoutX="14.0" layoutY="151.0" text="Trip Details">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="90.0" prefHeight="222.0" prefWidth="767.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <GridPane gridLinesVisible="true" layoutX="15.0" layoutY="194.0" prefHeight="222.0" prefWidth="767.0">
+               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
                   <Label text="Trip">
                      <font>
@@ -203,7 +205,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane gridLinesVisible="true" layoutX="15.0" layoutY="374.0" prefHeight="111.0" prefWidth="767.0">
+            <GridPane gridLinesVisible="true" layoutX="16.0" layoutY="478.0" prefHeight="111.0" prefWidth="767.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -292,12 +294,12 @@
                   </Label>
                </children>
             </GridPane>
-            <Label layoutX="14.0" layoutY="329.0" text="Truck">
+            <Label layoutX="15.0" layoutY="433.0" text="Truck">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <GridPane gridLinesVisible="true" layoutX="18.0" layoutY="550.0" prefHeight="104.0" prefWidth="761.0">
+            <GridPane gridLinesVisible="true" layoutX="19.0" layoutY="654.0" prefHeight="104.0" prefWidth="761.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -370,14 +372,33 @@
                   </Label>
                </children>
             </GridPane>
-            <Label layoutX="17.0" layoutY="501.0" text="Fuel">
+            <Label layoutX="18.0" layoutY="605.0" text="Fuel">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField id="searchInput" fx:id="searchInput" layoutX="324.0" layoutY="35.0" />
-            <Button id="searchButton" onAction="#searchTrip" layoutX="508.0" layoutY="35.0" mnemonicParsing="false" text="Search" />
-            <Button id="exceptionsReport" onAction="#exceptionsReportButton"  layoutX="704.0" layoutY="11.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="121.0" text="Exceptions Report" />
+            <Button id="searchButton" fx:id="searchButton" onAction="#searchButton" layoutX="532.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="251.0" text="Search" />
+            <ChoiceBox id="valueInputSearch" fx:id="valueInputSearch" layoutX="182.0" layoutY="96.0" prefWidth="150.0" />
+            <Label layoutX="9.0" layoutY="95.0" text="Select Field to Filter">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox id="exceptionInputSearch" fx:id="exceptionInputSearch" layoutX="356.0" layoutY="96.0" prefWidth="150.0" />
+            <TextField id="numberInputSearch"  layoutX="531.0" layoutY="96.0" />
+            <Label layoutX="393.0" layoutY="60.0" text="Exception">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="537.0" layoutY="60.0" text="Number or Value">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button id="nextButton" fx:id="nextButton" onAction="#nextButton" layoutX="618.0" layoutY="762.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Next" />
+            <Button id="previousButton" fx:id="previousButton" onAction="#previousButton" layoutX="18.0" layoutY="762.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Previous" />
+            <Label id="resultsFound" fx:id="resultsFound" layoutX="442.0" layoutY="160.0" text="Label" />
          </children>
       </Pane>
    </children>

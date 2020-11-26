@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Trip;
+import util.SceneController;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -86,5 +87,9 @@ public class TripReportController extends MainController {
         fuelPriceOutput.setText(Double.toString(pricePerLitre));
         litersOutput.setText(Double.toString(litres));
         totalOutput.setText(Double.toString(price));
+    }
+
+    public void exceptionsReportButton(ActionEvent actionEvent) {
+        new SceneController().setScene("../view/exceptionsReport.fxml", "Exceptions Report", 1000, 800);
     }
 }

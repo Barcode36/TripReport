@@ -102,6 +102,27 @@ public class Trip {
             return null;
         }
     }
+    public static List<Trip> getAllTrip() {
+        try {
+            // Create list
+            List<Trip> trips = new ArrayList<Trip>();
+
+            // Create sql
+            String sql = "SELECT * FROM Trip ";
+
+            // Execute sql
+            ResultSet rs = DbConn.getConn().prepareStatement(sql).executeQuery();
+
+            // Fill out list
+            while (rs.next()) {
+                trips.add(rsToTrip(rs));
+            }
+
+            return trips;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
 
     public static boolean saveTrip(Trip trip) {
         try {

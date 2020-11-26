@@ -10,9 +10,10 @@ public class Main extends Application {
 
         // Set the stage
         SceneController.setStage(stage);
+        stage.setResizable(false);
 
         // Set scene
-        new SceneController().setScene("../view/mainMenu.fxml", "Main Menu", 1000, 700);
+        new SceneController().setScene("../view/mainMenu.fxml", "Main Menu", 989, 690);
     }
 
     public static void main(String[] args) {

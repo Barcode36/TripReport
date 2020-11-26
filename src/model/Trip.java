@@ -2,10 +2,7 @@ package model;
 
 import util.DbConn;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +53,7 @@ public class Trip {
             Trip trip = new Trip();
 
             // Execute sql
-            ResultSet rs = DbConn.getConn().prepareStatement("select * from Trip where tripNo = " + tripNo).executeQuery();
+            ResultSet rs = DbConn.getConn().prepareStatement("select * from Trip where tripNo = '" + tripNo + "'").executeQuery();
 
             // Fill out trip
             rs.next();
@@ -117,8 +114,11 @@ public class Trip {
             else
                 return false;
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("Integrity Constraint Violation");
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
 

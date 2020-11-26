@@ -126,7 +126,16 @@ public class TripJournalController extends MainController {
         else if (!invalid && (invalid = mileageInput.getText().matches(".*[a-z].*"))) {
             alert.setContentText("Mileage should only contain numbers");
             mileageInput.clear();
-        }
+        }else if (!invalid && (invalid = driverNumberInput.getSelectionModel().isEmpty()))
+            alert.setContentText("Driver number should not be empty");
+        else if (!invalid && (invalid = coDriverNumberInput.getSelectionModel().isEmpty()))
+            alert.setContentText("Co Driver number should not be empty");
+        else if (!invalid && (invalid = truckNumberInput.getSelectionModel().isEmpty()))
+            alert.setContentText("Truck number should not be empty");
+        else if (!invalid && (invalid = stateCodeInput.getSelectionModel().isEmpty()))
+            alert.setContentText("State code should not be empty");
+
+
 
         if(invalid) {
             alert.show();

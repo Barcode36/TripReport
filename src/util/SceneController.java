@@ -22,6 +22,7 @@ public class SceneController {
             stage.setScene(new Scene(root, width, height));
             stage.show();
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("Error could not change scene");
         }
 

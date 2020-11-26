@@ -31,6 +31,7 @@ public class Trip {
     public Trip() {
     }
 
+
     public static Trip getTrip(int id) {
         try {
             // Create trip

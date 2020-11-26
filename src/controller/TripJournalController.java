@@ -135,8 +135,6 @@ public class TripJournalController extends MainController {
         else if (!invalid && (invalid = stateCodeInput.getSelectionModel().isEmpty()))
             alert.setContentText("State code should not be empty");
 
-
-
         if(invalid) {
             alert.show();
             return false;

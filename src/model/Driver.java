@@ -15,12 +15,6 @@ public class Driver {
     public Driver() {
     }
 
-    public Driver(String driverNo, String driverName, String phoneNo) {
-        this.driverNo = driverNo;
-        this.driverName = driverName;
-        this.phoneNo = phoneNo;
-    }
-
     public static Driver getDriver(String driverNo) {
         try {
             // Create trip

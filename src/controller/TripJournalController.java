@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import model.Driver;
 import model.State;
@@ -12,6 +13,7 @@ import model.Truck;
 
 import java.net.URL;
 import java.sql.Date;
+import java.time.ZoneId;
 import java.util.ResourceBundle;
 
 public class TripJournalController extends MainController {
@@ -22,9 +24,9 @@ public class TripJournalController extends MainController {
     @FXML
     private ComboBox coDriverNumberInput;
     @FXML
-    private TextField dateDepartedInput;
+    private DatePicker dateDepartedInput;
     @FXML
-    private TextField dateReturnedInput;
+    private DatePicker dateReturnedInput;
     @FXML
     private ComboBox truckNumberInput;
     @FXML
@@ -71,8 +73,8 @@ public class TripJournalController extends MainController {
             trip.setTripNo(tripNumberInput.getText());
             trip.setDriverNo(driverNumberInput.getSelectionModel().getSelectedItem().toString());
             trip.setCoDriverNo(coDriverNumberInput.getSelectionModel().getSelectedItem().toString());
-//        trip.setDepartDate(Date.valueOf(dateDepartedInput.getText()));
-//        trip.setReturnDate(Date.valueOf(dateReturnedInput.getText()));
+            trip.setDepartDate(new java.sql.Date(java.util.Date.from(dateDepartedInput.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
+            trip.setReturnDate(new java.sql.Date(java.util.Date.from(dateReturnedInput.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()));
             trip.setTruckNo(truckNumberInput.getSelectionModel().getSelectedItem().toString());
             trip.setStateCode(stateCodeInput.getSelectionModel().getSelectedItem().toString());
             trip.setMilesDriven(Integer.parseInt(mileageInput.getText()));
@@ -86,7 +88,7 @@ public class TripJournalController extends MainController {
             // Check if successful and display alert
             Alert alert;
             if(Trip.saveTrip(trip)) {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("successfully added trip");
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
@@ -118,12 +120,10 @@ public class TripJournalController extends MainController {
         else if (!invalid && (invalid = litresInput.getText().matches(".*[a-z].*"))) {
             alert.setContentText("Litres should only contain numbers");
             litresInput.clear();
-        }
-        else if (!invalid && (invalid = priceInput.getText().matches(".*[a-z].*"))) {
+        } else if (!invalid && (invalid = priceInput.getText().matches(".*[a-z].*"))) {
             alert.setContentText("Prices should only contain numbers");
             priceInput.clear();
-        }
-        else if (!invalid && (invalid = mileageInput.getText().matches(".*[a-z].*"))) {
+        } else if (!invalid && (invalid = mileageInput.getText().matches(".*[a-z].*"))) {
             alert.setContentText("Mileage should only contain numbers");
             mileageInput.clear();
         }else if (!invalid && (invalid = driverNumberInput.getSelectionModel().isEmpty()))
@@ -134,6 +134,10 @@ public class TripJournalController extends MainController {
             alert.setContentText("Truck number should not be empty");
         else if (!invalid && (invalid = stateCodeInput.getSelectionModel().isEmpty()))
             alert.setContentText("State code should not be empty");
+        else if (!invalid && (invalid = (dateDepartedInput.getValue() == null)))
+            alert.setContentText("Date Departed should not be empty");
+        else if (!invalid && (invalid = (dateReturnedInput.getValue() == null)))
+            alert.setContentText("Date Returned should not be empty");
 
         if(invalid) {
             alert.show();

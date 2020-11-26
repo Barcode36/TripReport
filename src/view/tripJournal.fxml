@@ -80,7 +80,7 @@
                                 <Font size="18.0"/>
                             </font>
                         </Label>
-                        <DatePicker id="dateDepartedInput" layoutX="10.0" layoutY="225.0"/>
+                        <DatePicker id="dateDepartedInput" fx:id="dateDepartedInput" layoutX="10.0" layoutY="225.0"/>
                         <TextField id="tripNumberInput" fx:id="tripNumberInput" layoutX="8.0" layoutY="81.0"
                                    prefHeight="25.0" prefWidth="761.0"/>
                         <Label layoutX="409.0" layoutY="121.0" text="Co-Driver Number">
@@ -93,7 +93,7 @@
                                 <Font size="18.0"/>
                             </font>
                         </Label>
-                        <DatePicker id="dateReturnedInput" layoutX="409.0" layoutY="225.0"/>
+                        <DatePicker id="dateReturnedInput" fx:id="dateReturnedInput" layoutX="409.0" layoutY="225.0"/>
                         <ComboBox id="driverNumberInput" fx:id="driverNumberInput" layoutX="7.0" layoutY="148.0"
                                   prefHeight="25.0" prefWidth="333.0"/>
                         <ComboBox id="coDriverNumberInput" fx:id="coDriverNumberInput" layoutX="409.0" layoutY="148.0"

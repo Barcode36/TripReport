@@ -19,7 +19,8 @@
                         <Font size="24.0" />
                     </font>
                 </Label>
-                <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" onAction="#tripReportButton" prefHeight="53.0" prefWidth="121.0" text="TRIP JOURNAL">
+                <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" onAction="#tripReportButton"
+                        prefHeight="53.0" prefWidth="121.0" text="TRIP JOURNAL">
                     <font>
                         <Font size="15.0" />
                     </font>

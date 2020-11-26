@@ -69,7 +69,7 @@ public class Trip {
         }
     }
 
-    public static int saveTrip(Trip trip) {
+    public static boolean saveTrip(Trip trip) {
         try {
 
             PreparedStatement statement = DbConn.getConn().prepareStatement("" +
@@ -94,12 +94,16 @@ public class Trip {
             statement.setDouble(15, trip.fuelConsumption);
             statement.setString(16, trip.comment == null ? "" : trip.comment);
 
-            return statement.executeUpdate();
+            if (statement.executeUpdate() == 1)
+                return true;
+            else
+                return false;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            return false;
         }
-        return 0;
+
     }
 
     private static Trip rsToTrip(ResultSet rs) throws SQLException {

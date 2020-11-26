@@ -21,7 +21,8 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="TRIP JOURNAL">
+            <Button id="tripReportButton" lineSpacing="2.0" mnemonicParsing="false" onAction="#tripReportButton"
+                    prefHeight="53.0" prefWidth="121.0" text="TRIP JOURNAL">
                <font>
                   <Font size="15.0" />
                </font>
@@ -29,7 +30,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button id="reportButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="TRIP REPORT">
+            <Button id="reportButton" mnemonicParsing="false" onAction="#reportButton" prefHeight="53.0" prefWidth="121.0" text="TRIP REPORT">
                <font>
                   <Font size="15.0" />
                </font>
@@ -37,7 +38,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button id="summaryButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="121.0" text="SUMMARY">
+            <Button id="summaryButton" mnemonicParsing="false" onAction="#summaryButton" prefHeight="53.0" prefWidth="121.0" text="SUMMARY">
                <font>
                   <Font size="15.0" />
                </font>

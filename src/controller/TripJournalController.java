@@ -62,13 +62,12 @@ public class TripJournalController extends MainController {
 
     }
 
-    private void onStart() {
-
-    }
-
     public void SubmitButton(ActionEvent actionEvent) {
-        Trip trip = new Trip();
+        // Check if trip is valid
         if (checkFields()) {
+
+            // Create trip
+            Trip trip = new Trip();
             trip.setTripNo(tripNumberInput.getText());
             trip.setDriverNo(driverNumberInput.getSelectionModel().getSelectedItem().toString());
             trip.setCoDriverNo(coDriverNumberInput.getSelectionModel().getSelectedItem().toString());
@@ -83,7 +82,8 @@ public class TripJournalController extends MainController {
             trip.setFuelConsumption(Double.parseDouble(priceInput.getText()));
             trip.setGallonPurchased(Double.parseDouble(litresInput.getText()));
 
-
+            // Save the trip
+            // Check if successful and display alert
             Alert alert;
             if(Trip.saveTrip(trip)) {
                 alert = new Alert(Alert.AlertType.CONFIRMATION);

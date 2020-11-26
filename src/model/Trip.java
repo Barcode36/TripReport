@@ -32,13 +32,31 @@ public class Trip {
     }
 
 
-    public static Trip getTrip(int id) {
+    public static Trip getTripByID(int id) {
         try {
             // Create trip
             Trip trip = new Trip();
 
             // Execute sql
             ResultSet rs = DbConn.getConn().prepareStatement("select * from Trip where id = " + id).executeQuery();
+
+            // Fill out trip
+            rs.next();
+            trip = rsToTrip(rs);
+
+            return trip;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
+    public static Trip getTripByTripNo(String tripNo) {
+        try {
+            // Create trip
+            Trip trip = new Trip();
+
+            // Execute sql
+            ResultSet rs = DbConn.getConn().prepareStatement("select * from Trip where tripNo = " + tripNo).executeQuery();
 
             // Fill out trip
             rs.next();

@@ -1,5 +1,7 @@
 import model.Driver;
+import model.State;
 import model.Trip;
+import model.Truck;
 import util.DbConn;
 
 public class Main_Old {
@@ -23,6 +25,16 @@ public class Main_Old {
 
 //        System.out.println(Driver.getDriver("GO7013553"));
 
-        Trip.saveTrip(Trip.getTrip(3));
+//        Trip.saveTrip(Trip.getTrip(3));
+
+//        for(Truck truck: Truck.getAllTruck())
+//            System.out.println(truck.toString());
+//
+//        System.out.println("\n" + Truck.getTruck("JLU0"));
+
+        for (State state : State.getAllState())
+            System.out.println(state.toString());
+
+        System.out.println("\n" + State.getState("AK"));
     }
 }

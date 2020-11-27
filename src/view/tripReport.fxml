@@ -44,6 +44,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
+            <Label text="Simon and Louis" prefHeight="500" alignment="BOTTOM_CENTER"/>
          </children>
       </VBox>
       <Pane layoutX="165.0" prefHeight="800.0" prefWidth="840.0" style="-fx-background-color: #888b8a;">

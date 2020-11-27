@@ -10,6 +10,9 @@ import model.Trip;
 
 import javax.swing.*;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -68,18 +71,20 @@ public class ExceptionsReportController extends MainController {
     }
 
     public void searchButton(ActionEvent actionEvent) {
-        int count = 0;
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         String field = "";
         String operator = "";
         String condition = "";
         String method = "";
+        boolean valid = true;
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 
         switch (exceptionInputSearch.getSelectionModel().getSelectedItem().toString()) {
             case "All":
                 method = "getAll";
                 break;
             default:
-                condition = exceptionInputSearch.getSelectionModel().getSelectedItem().toString();
+                operator = exceptionInputSearch.getSelectionModel().getSelectedItem().toString();
                 break;
         }
 
@@ -95,54 +100,155 @@ public class ExceptionsReportController extends MainController {
         } else {
             isSearched = true;
             if (!valueInputSearch.getSelectionModel().getSelectedItem().toString().isEmpty()) {
+                String value = numberInputSearch.getText();
                 switch (valueInputSearch.getSelectionModel().getSelectedItem().toString()) {
                     case "Trip Number":
                         field = "tripNo";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Trip number should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Driver Number":
                         field = "driverNo";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Driver number should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Co-Driver Number":
                         field = "coDriverNo";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Trip number should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Days":
                         field = "returnDate - departDate";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Days should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Date Departed":
                         field = "departDate";
+                        df.setLenient(false);
+                        try {
+                            df.parse(value);
+                            valid = true;
+                        }
+                        catch (ParseException e){
+                            valid = false;
+                            alert.setContentText("Date format should be yyyy-mm-dd");
+                            alert.show();
+                        }
                         break;
                     case "Date Returned":
                         field = "returnDate";
+                        df.setLenient(false);
+                        try {
+                            df.parse(value);
+                            valid = true;
+                        }
+                        catch (ParseException e){
+                            valid = false;
+                            alert.setContentText("Date format should be yyyy-mm-dd");
+                            alert.show();
+                        }
                         break;
                     case "Truck Number":
                         field = "truckNo";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Truck number should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Mileage":
                         field = "milesDriven";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Mileage should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Comment":
                         field = "comment";
                         break;
                     case "Fuel Price":
                         field = "fuelConsumption";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Fuel price should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Liters Purchased":
                         field = "gallonPurchased";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Liters Purchased should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
                         break;
                     case "Total":
                         field = "fuelConsumption * gallonPurchased";
+                        if(!value.matches("^[0-9]*$")) {
+                            valid = false;
+                            alert.setContentText("Total should not contain characters");
+                            alert.show();
+                        }
+                        else{
+                            valid = true;
+                        }
+                        break;
+                    default:
+                        alert.setContentText("Fields should not be empty");
+                        alert.show();
                         break;
                 }
                 ;
             }
-            if (!numberInputSearch.getText().isEmpty())
+            if(valid) {
                 condition = numberInputSearch.getText();
+                System.out.println(field);
+                System.out.println(operator);
+                System.out.println(condition);
+                operator = exceptionInputSearch.getSelectionModel().getSelectedItem().toString();
 
-            operator = exceptionInputSearch.getSelectionModel().getSelectedItem().toString();
+                tripList = Trip.getTripBy(field, operator, condition);
 
-            tripList = Trip.getTripBy(field, operator, condition);
-
-            putData(tripList.get(0));
+                putData(tripList.get(0));
+                resultsFound.setText(Integer.toString(tripList.size()) + " results");
+            }
         }
     }
 

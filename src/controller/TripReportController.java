@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Trip;
 import util.SceneController;
+import java.time.temporal.ChronoUnit;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -65,12 +66,10 @@ public class TripReportController extends MainController {
             return;
         }
 
-        //Todo display trip information
         if(trip.getReturnDate() != null && trip.getDepartDate() != null) {
-            LocalDate returnDate = LocalDate.parse(trip.getReturnDate().toString(), DateTimeFormatter.BASIC_ISO_DATE);
-            LocalDate departDate = LocalDate.parse(trip.getDepartDate().toString(), DateTimeFormatter.BASIC_ISO_DATE);
-            Duration diff = Duration.between(returnDate, departDate);
-            daysOutput.setText(diff.toString());
+            LocalDate returnDate = trip.getReturnDate().toLocalDate();
+            LocalDate departDate = trip.getDepartDate().toLocalDate();
+            daysOutput.setText(Long.toString(ChronoUnit.DAYS.between(departDate,returnDate)));
             dateDepartedOutput.setText(returnDate.toString());
             dateReturnedOutput.setText(departDate.toString());
         }

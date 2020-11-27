@@ -25,7 +25,7 @@ public class ExceptionsReportController extends MainController {
     @FXML
     private ChoiceBox exceptionInputSearch;
     @FXML
-    private Label numberInputSearch;
+    private TextField numberInputSearch;
     @FXML
     private Label resultsFound;
     @FXML
@@ -58,7 +58,7 @@ public class ExceptionsReportController extends MainController {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        List<String> fields = new ArrayList<String>(Arrays.asList("","Trip Number", "Driver Number", "Co-Driver Number", "Days", "Date Departed", "Date Returned",
+        List<String> fields = new ArrayList<String>(Arrays.asList("", "Trip Number", "Driver Number", "Co-Driver Number", "Days", "Date Departed", "Date Returned",
                 "Truck Number", "Mileage", "Comment", "Fuel Price", "Liters Purchased", "Total"));
         List<String> operators = new ArrayList<String>(Arrays.asList("<", "<=", "=", ">=", ">", "All"));
         valueInputSearch.getItems().addAll(fields);
@@ -74,7 +74,7 @@ public class ExceptionsReportController extends MainController {
         String condition = "";
         String method = "";
 
-        switch (exceptionInputSearch.getSelectionModel().getSelectedItem().toString()){
+        switch (exceptionInputSearch.getSelectionModel().getSelectedItem().toString()) {
             case "All":
                 method = "getAll";
                 break;
@@ -82,7 +82,8 @@ public class ExceptionsReportController extends MainController {
                 condition = exceptionInputSearch.getSelectionModel().getSelectedItem().toString();
                 break;
         }
-        if(method.equals("getAll")){
+
+        if (method.equals("getAll")) {
             isSearched = true;
             valueInputSearch.getSelectionModel().selectFirst();
 
@@ -91,7 +92,7 @@ public class ExceptionsReportController extends MainController {
 
             putData(tripList.get(0));
             index = 0;
-        }else {
+        } else {
             isSearched = true;
             if (!valueInputSearch.getSelectionModel().getSelectedItem().toString().isEmpty()) {
                 switch (valueInputSearch.getSelectionModel().getSelectedItem().toString()) {
@@ -131,22 +132,25 @@ public class ExceptionsReportController extends MainController {
                     case "Total":
                         field = "fuelConsumption * gallonPurchased";
                         break;
-                };
+                }
+                ;
             }
-            if(!numberInputSearch.getText().isEmpty())
+            if (!numberInputSearch.getText().isEmpty())
                 condition = numberInputSearch.getText();
 
-            tripList = Trip.getTripBy(field,operator,condition);
+            operator = exceptionInputSearch.getSelectionModel().getSelectedItem().toString();
+
+            tripList = Trip.getTripBy(field, operator, condition);
 
             putData(tripList.get(0));
         }
     }
 
     public void nextButton(ActionEvent event) {
-        if(isSearched) {
-            if(index+1 < tripList.size()) {
+        if (isSearched) {
+            if (index + 1 < tripList.size()) {
                 index++;
-                resultsFound.setText(index+1 + "/" + tripList.size());
+                resultsFound.setText(index + 1 + "/" + tripList.size());
                 clearLabels();
                 putData(tripList.get(index));
             }
@@ -154,8 +158,8 @@ public class ExceptionsReportController extends MainController {
     }
 
     public void previousButton(ActionEvent event) {
-        if(isSearched) {
-            if(index-1 >= 0) {
+        if (isSearched) {
+            if (index - 1 >= 0) {
                 index--;
                 resultsFound.setText(index + "/" + tripList.size());
                 clearLabels();
@@ -164,7 +168,7 @@ public class ExceptionsReportController extends MainController {
         }
     }
 
-    public void clearLabels(){
+    public void clearLabels() {
         tripNumberOutput.setText("");
         driverNumberOutput.setText("");
         coDriverNumberOutput.setText("");
@@ -179,12 +183,12 @@ public class ExceptionsReportController extends MainController {
         dateReturnedOutput.setText("");
     }
 
-    public void putData(Trip trip){
+    public void putData(Trip trip) {
         if (trip.getReturnDate() != null && trip.getDepartDate() != null) {
             LocalDate returnDate = trip.getReturnDate().toLocalDate();
             LocalDate departDate = trip.getDepartDate().toLocalDate();
 
-            daysOutput.setText(Long.toString(ChronoUnit.DAYS.between(departDate,returnDate)));
+            daysOutput.setText(Long.toString(ChronoUnit.DAYS.between(departDate, returnDate)));
             dateDepartedOutput.setText(departDate.toString());
             dateReturnedOutput.setText(returnDate.toString());
         }

@@ -257,9 +257,6 @@ public class SummaryReportController extends MainController {
         average180Days = list180.stream().mapToDouble(o -> (double) (ChronoUnit.DAYS.between(o.getDepartDate().toLocalDate(), o.getReturnDate().toLocalDate()))).average().orElse(0);
         averageYearDays = listYear.stream().mapToDouble(o -> (double) (ChronoUnit.DAYS.between(o.getDepartDate().toLocalDate(), o.getReturnDate().toLocalDate()))).average().orElse(0);
 
-        for (Trip o : list30)
-            System.out.println(ChronoUnit.DAYS.between(o.getDepartDate().toLocalDate(), o.getReturnDate().toLocalDate()));
-
         d = new DecimalFormat("#0.0");
 
         // SET THE LABELS

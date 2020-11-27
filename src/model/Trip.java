@@ -58,7 +58,7 @@ public class Trip {
             List<Trip> trips = new ArrayList<Trip>();
 
             // Create sql
-            String sql = "SELECT * FROM Trip WHERE"+ field + " " + operator + " " + whereCondition;
+            String sql = "SELECT * FROM Trip WHERE "+ field + " " + operator + " " + whereCondition;
 
             // Execute sql
             ResultSet rs = DbConn.getConn().prepareStatement(sql).executeQuery();

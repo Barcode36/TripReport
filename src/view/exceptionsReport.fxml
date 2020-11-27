@@ -385,7 +385,7 @@
                </font>
             </Label>
             <ChoiceBox id="exceptionInputSearch" fx:id="exceptionInputSearch" layoutX="356.0" layoutY="96.0" prefWidth="150.0" />
-            <TextField id="numberInputSearch"  layoutX="531.0" layoutY="96.0" />
+            <TextField id="numberInputSearch" fx:id="numberInputSearch" layoutX="531.0" layoutY="96.0" />
             <Label layoutX="393.0" layoutY="60.0" text="Exception">
                <font>
                   <Font size="18.0" />

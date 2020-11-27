@@ -52,6 +52,28 @@ public class Trip {
         }
     }
 
+    public static List<Trip> getTripBy(String field, String operator, String whereCondition){
+        try {
+            // Create list
+            List<Trip> trips = new ArrayList<Trip>();
+
+            // Create sql
+            String sql = "SELECT * FROM Trip WHERE"+ field + " " + operator + " " + whereCondition;
+
+            // Execute sql
+            ResultSet rs = DbConn.getConn().prepareStatement(sql).executeQuery();
+
+            // Fill out list
+            while (rs.next()) {
+                trips.add(rsToTrip(rs));
+            }
+
+            return trips;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
     public static Trip getTripByTripNo(String tripNo) {
         try {
             // Create trip

@@ -398,7 +398,7 @@
             </Label>
             <Button id="nextButton" fx:id="nextButton" onAction="#nextButton" layoutX="618.0" layoutY="762.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Next" />
             <Button id="previousButton" fx:id="previousButton" onAction="#previousButton" layoutX="18.0" layoutY="762.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Previous" />
-            <Label id="resultsFound" fx:id="resultsFound" layoutX="442.0" layoutY="160.0" text="Label" />
+            <Label id="resultsFound" fx:id="resultsFound" layoutX="400.0" layoutY="160.0" text="Label" />
          </children>
       </Pane>
    </children>
